@@ -1,0 +1,30 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 2rem;
+    display: grid;
+    place-content: center;
+}
+
+canvas {
+    border: 2px solid black;
+}
+
+form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+button {
+    width: 120px;
+    height: 50px;
+    border-radius: 50px;
+}
