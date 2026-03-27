@@ -6,15 +6,21 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color-black: #191919;
+    --color-white: #e6e6e6;
+}
+
 body {
     height: calc(100vh - 1rem);
     padding: 2rem;
     display: grid;
     place-content: center;
+    background-color: var(--color-black);
 }
 
 canvas {
-    border: 2px solid black;
+    border: 2px solid var(--color-white);
 }
 
 form {
@@ -25,7 +31,12 @@ form {
 }
 
 button {
-    width: 120px;
     height: 50px;
+    width: 120px;
     border-radius: 50px;
+    font-size: 16px;
+    font-weight: bolder;
+    font-family: monospace;
+    color: var(--color-black);
+    background-color: var(--color-white);
 }
