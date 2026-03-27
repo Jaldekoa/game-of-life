@@ -9,6 +9,7 @@
 :root {
     --color-black: #191919;
     --color-white: #e6e6e6;
+    --color-grey: darkgrey;
 }
 
 body {
@@ -19,8 +20,17 @@ body {
     background-color: var(--color-black);
 }
 
+h1 {
+    font-size: 36px;
+    text-align: center;
+    font-weight: bolder;
+    font-family: monospace;
+    color: var(--color-white);
+}
+
 canvas {
-    border: 2px solid var(--color-white);
+    image-rendering: pixelated;
+    border: 2px solid var(--color-grey);
 }
 
 form {
@@ -38,5 +48,6 @@ button {
     font-weight: bolder;
     font-family: monospace;
     color: var(--color-black);
+    border: 2px solid var(--color-grey);
     background-color: var(--color-white);
 }
