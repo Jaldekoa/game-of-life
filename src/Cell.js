@@ -63,12 +63,43 @@ class Board {
         return neighbors;
     };
 
+    countAliveNeighbors(neighbors) {
+        return neighbors.reduce((acc, val) => { return val.isAlive ? acc + 1 : acc }, 0);
+    }
+
+    step(cell) {
+        const neighbors = this.getNeighbors(cell);
+        const aliveNeighbors = this.countAliveNeighbors(neighbors);
+
+        // Nace: Si una célula muerta tiene exactamente 3 células vecinas vivas "nace" (es decir, al turno siguiente estará viva).
+        if (!cell.isAlive && aliveNeighbors === 3) cell.isAlive = true;
+
+        // Muere: una célula viva puede morir por uno de 2 casos:
+
+        //Sobrepoblación: si tiene más de tres vecinos alrededor.
+        if (cell.isAlive && aliveNeighbors > 3) cell.isAlive = false;
+        // Aislamiento: si tiene solo un vecino alrededor o ninguno.
+        if (cell.isAlive && aliveNeighbors <= 1) cell.isAlive = false;
+    };
+
     update() {
-        const neighborhood = [];
+        const boardClone = structuredClone(this.board);
+
+        for (let yi = 0; yi < this.ny; yi++) {
+            for (let xi = 0; xi < this.nx; xi++) {
+                const cell = boardClone[yi][xi];
+                this.step(cell);
+            };
+        };
+
+        this.board = boardClone;
     };
 
     start() {
-        window.requestAnimationFrame(this.start);
+        console.log("Exec");
+        window.requestAnimationFrame(this.start.bind(this));
+        this.update();
+        this.drawBoard();
     };
 };
 
