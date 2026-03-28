@@ -10,6 +10,9 @@ const [nX, nY] = [HEIGHT / CELL_SIZE, WIDTH / CELL_SIZE];
 const $canvas = document.querySelector('canvas');
 const ctx = $canvas.getContext('2d');
 
+$canvas.width = HEIGHT;
+$canvas.height = WIDTH;
+
 const $run = document.getElementById('run');
 const $stop = document.getElementById('stop');
 
@@ -17,10 +20,10 @@ const board = new Board(ctx, nX, nY, { alive: CELL_COLOR, dead: BACKGROUND_COLOR
 
 // Canvas management
 $canvas.addEventListener('DOMContentLoaded', (event) => { });
-$canvas.addEventListener('mousedown', startDrawing);
+$canvas.addEventListener('mousedown', () => { isDrawing = true });
+$canvas.addEventListener('mouseup', () => { isDrawing = false });
+$canvas.addEventListener('mouseleave', () => { isDrawing = false });
 $canvas.addEventListener('mousemove', draw);
-$canvas.addEventListener('mouseup', stopDrawing);
-$canvas.addEventListener('mouseleave', stopDrawing);
 
 // Game manegement
 $run.addEventListener('click', (event) => {
@@ -29,10 +32,12 @@ $run.addEventListener('click', (event) => {
     board.start();
 });
 
-$stop.addEventListener('click', (event) => { });
+$stop.addEventListener('click', (event) => {
+    event.preventDefault();
+    $run.removeAttribute('disabled');
+    board.stop();
+});
 
-function startDrawing() { isDrawing = true };
-function stopDrawing() { isDrawing = false };
 function draw(event) {
     if (!isDrawing) return;
 
@@ -43,7 +48,7 @@ function draw(event) {
     x = Math.max(0, Math.min(x, board.nx - 1));
     y = Math.max(0, Math.min(y, board.ny - 1));
 
-    board.board[y][x].isAlive = !board.board[y][x].isAlive;
+    board.board[y][x].isAlive = true;
     board.drawBoard();
 }
 
