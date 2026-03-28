@@ -1,12 +1,8 @@
-<div style='text-align:center'>
-
 # 🧬 The Game of Life
-
-</div>
 
 Una implementación elegante, minimalista e interactiva del famoso autómata celular de John Conway, construida con **JavaScript Vanilla** y **HTML5 Canvas**.
 
-[![Web Oficial](https://img.shields.io/badge/Live_demo-Game%20Of%20Life-0A66C2?style=flat&logo=google-chrome&logoColor=white)](https://sublytics.pages.dev/)
+[![Web Oficial](https://img.shields.io/badge/Live_demo-Game%20Of%20Life-0A66C2?style=flat&logo=google-chrome&logoColor=white)](https://jaldekoa.github.io/game-of-life/)
 
 ---
 
@@ -112,6 +108,4 @@ Esto asegura que todas las células "nazcan" o "mueran" simultáneamente en cada
 [![GitHub](https://img.shields.io/badge/GitHub-Jaldekoa-181717?style=flat&logo=github&logoColor=white)](https://github.com/Jaldekoa)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Jon_Aldekoa-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jaldekoa/)
 
-<div style='text-align:center'>
 "El universo es simplemente un juego de la vida con reglas un poco más complicadas."
-<div>
