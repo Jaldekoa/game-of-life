@@ -1,8 +1,10 @@
 # 🧬 The Game of Life
 
+[![Web Oficial](https://img.shields.io/badge/Live_demo-Game%20Of%20Life-0A66C2?style=flat&logo=google-chrome&logoColor=white)](https://jaldekoa.github.io/game-of-life/)
+
 Una implementación elegante, minimalista e interactiva del famoso autómata celular de John Conway, construida con **JavaScript Vanilla** y **HTML5 Canvas**.
 
-[![Web Oficial](https://img.shields.io/badge/Live_demo-Game%20Of%20Life-0A66C2?style=flat&logo=google-chrome&logoColor=white)](https://jaldekoa.github.io/game-of-life/)
+![Snapshot de la pantalla de The Game of Life](./src/assets/snapshot.gif)
 
 ---
 
