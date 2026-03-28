@@ -2,7 +2,7 @@ class Cell {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.isAlive = true;
+        this.isAlive = false;
     };
 };
 
@@ -16,7 +16,6 @@ class Board {
         this.color = color;
 
         this.initializeCells();
-        this.board[35][0].isAlive = false; //(filas, columnas)
         this.drawBoard();
     };
 
@@ -53,6 +52,8 @@ class Board {
 
         for (let yj of [j - 1, j, j + 1]) {
             for (let xi of [i - 1, i, i + 1]) {
+                if (cell.x === xi && cell.y === yj) continue;
+
                 // Primero compruebo si `this.board[yj]` me da `undefined` o no para tratar de acceder a `this.board[yj][xi]`.
                 let neighborCell = this.board[yj] ? this.board[yj][xi] : undefined;
                 // Si `this.board[yj][xi]` (es decir `neighborCell`) no es undefined, lo añado al array de vecinos.
@@ -96,10 +97,10 @@ class Board {
     };
 
     start() {
-        console.log("Exec");
         window.requestAnimationFrame(this.start.bind(this));
         this.update();
         this.drawBoard();
+        setTimeout(() => { return }, 1000);
     };
 };
 
