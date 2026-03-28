@@ -37,17 +37,13 @@ function draw(event) {
     if (!isDrawing) return;
 
     const { offsetX, offsetY } = event;
-
     let x = Math.floor(offsetX / CELL_SIZE);
     let y = Math.floor(offsetY / CELL_SIZE);
 
-    // Limitar a rango válido
     x = Math.max(0, Math.min(x, board.nx - 1));
     y = Math.max(0, Math.min(y, board.ny - 1));
 
-    console.log(x, y);
-
-    // Alternar estado
     board.board[y][x].isAlive = !board.board[y][x].isAlive;
+    board.drawBoard();
 }
 
