@@ -29,7 +29,7 @@ $canvas.addEventListener('mousemove', draw);
 
 // Slider management
 $slider.addEventListener('change', (event) => {
-    board.updateInterval = Number($slider.value);
+    board.updateInterval = Number(event.target.value);
 });
 
 // Game manegement
