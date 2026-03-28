@@ -13,10 +13,12 @@ const ctx = $canvas.getContext('2d');
 $canvas.width = HEIGHT;
 $canvas.height = WIDTH;
 
+const $slider = document.getElementById('slider');
 const $run = document.getElementById('run');
 const $stop = document.getElementById('stop');
 
 const board = new Board(ctx, nX, nY, { alive: CELL_COLOR, dead: BACKGROUND_COLOR }, CELL_SIZE);
+board.updateInterval = Number($slider.value);
 
 // Canvas management
 $canvas.addEventListener('DOMContentLoaded', (event) => { });
@@ -24,6 +26,11 @@ $canvas.addEventListener('mousedown', () => { isDrawing = true });
 $canvas.addEventListener('mouseup', () => { isDrawing = false });
 $canvas.addEventListener('mouseleave', () => { isDrawing = false });
 $canvas.addEventListener('mousemove', draw);
+
+// Slider management
+$slider.addEventListener('change', (event) => {
+    board.updateInterval = Number($slider.value);
+});
 
 // Game manegement
 $run.addEventListener('click', (event) => {
