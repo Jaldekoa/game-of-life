@@ -96,11 +96,11 @@ classDiagram
 ## 🧠 Lógica de Evolución
 Para garantizar que el juego funcione correctamente, implementamos un sistema de doble estado. En lugar de modificar las células mientras las leemos (lo que causaría errores en el cálculo de vecinos), el sistema sigue este flujo:
 
-Lectura: Se analiza el tablero actual.
+1. **Lectura:** Se analiza el tablero actual.
 
-Cálculo: Se genera un mapa de bits con el estado futuro basado en las 3 reglas de Conway (Aislamiento, Supervivencia, Sobrepoblación).
+2. **Cálculo:** Se genera un mapa de bits con el estado futuro basado en las 3 reglas de Conway (Aislamiento, Supervivencia, Sobrepoblación).
 
-Actualización: Se aplica el mapa de bits a las células reales de una sola vez.
+3. **Actualización:** Se aplica el mapa de bits a las células reales de una sola vez.
 
 Esto asegura que todas las células "nazcan" o "mueran" simultáneamente en cada turno.
 
